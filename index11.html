@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="JQuerry.js"></script>
+    <style>
+        body {
+            padding: 20px 20px;
+        }
+
+        .homeService {
+            overflow: hidden;
+            position: relative;
+            margin: 0 19px;
+            width: 320px;
+            padding: 0 5px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            position: relative;
+            margin-bottom: 10px;
+            line-height: 42px;
+            height: 42px;
+            font-size: 16px;
+            color: #ff552e;
+        }
+
+        .baomu {
+            font-size: 16px;
+            color: #ff552e;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .baomu img {
+            width: 124px;
+            position: absolute;
+            top: 12px;
+        }
+
+        .swipeDot {
+            position: absolute;
+            top: 30px;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .swipeDot li {
+            background: url(http://img.58cdn.com.cn/ui6/index/minico.png?v=6) no-repeat;
+            float: left;
+            width: 12px;
+            height: 12px;
+            background-position: 0 -936px;
+            margin: 0 2px;
+        }
+
+        li.active {
+            background-position: 0 -877px;
+        }
+
+        #wubaDaojiaList {
+            position: relative;
+            left: -310px;
+            overflow: hidden;
+            width: 950px;
+            height: 54px;
+        }
+
+        em {
+            width: 58px;
+            display: inline-block;
+            height: 54px;
+            text-align: center;
+            white-space: nowrap;
+            font-style: normal;
+            font-size: 12px;
+        }
+
+        .baojie {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px 0;
+            background-size: 30px;
+        }
+
+        .yuesao {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px -58px;
+            background-size: 30px;
+        }
+
+        .banjia {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px -235px;
+            background-size: 30px;
+        }
+
+        .shangmenaz {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px -645px;
+            background-size: 30px;
+        }
+
+        .fangwuwx {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px -587px;
+            background-size: 30px;
+        }
+
+        .jiajuwx {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px -530px;
+            background-size: 30px;
+        }
+
+        .shumawx {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px -702px;
+            background-size: 30px;
+        }
+
+        .yuersao {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px -294px;
+            background-size: 30px;
+        }
+
+        .duigong {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px -354px;
+            background-size: 30px;
+        }
+
+        .category {
+            text-decoration: none;
+            color: #0e8ed8;
+            width: 50px;
+            height: 54px;
+            display: inline-block;
+            line-height: 88px;
+            background: url(service.png) left top no-repeat;
+            background-position: 10px -817px;
+            background-size: 30px;
+        }
+
+        .swipeBtn {
+            display: block;
+        }
+
+        .left-toggle {
+            position: absolute;
+            top: 50px;
+            height: 45px;
+            width: 19px;
+            cursor: pointer;
+            background: url(icon.png) no-repeat;
+            background-position: 0 -722px;
+            left: 0px;
+
+        }
+
+        .right-toggle {
+            position: absolute;
+            top: 50px;
+            height: 45px;
+            width: 19px;
+            cursor: pointer;
+            background: url(icon.png) no-repeat;
+            background-position: 0 -781px;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="homeService">
+        <h2>
+            <a href="#" class="baomu">家庭上门服务
+                <img src="baomu.png">
+            </a>
+        </h2>
+        <ul class="swipeDot">
+            <li class=""></li>
+            <li class="active"></li>
+        </ul>
+        <div id="wubaDaojiaList">
+            <em>
+                <a href="#" class="baojie"> 家庭保洁</a>
+            </em>
+            <em>
+                <a href="#" class="yuesao">保姆月嫂</a>
+            </em>
+            <em>
+                <a href="#" class="banjia">搬家</a>
+            </em>
+            <em>
+                <a href="#" class="shangmenaz">上门安装</a>
+            </em>
+            <em>
+                <a href="#" class="fangwuwx">房屋维修</a>
+            </em>
+            <em>
+                <a href="#" class="jiajuwx">家电维修</a>
+            </em>
+            <em>
+                <a href="#" class="shumawx">数码维修</a>
+            </em>
+            <em>
+                <a href="#" class="yuersao">育儿嫂</a>
+            </em>
+            <em>
+                <a href="#" class="duigong">企业后勤</a>
+            </em>
+            <em>
+                <a href="#" class="category">全部服务</a>
+            </em>
+        </div>
+        <div class="swipeBtn">
+            <div class="left-toggle"></div>
+            <div class="right-toggle"></div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.swipeDot li').click(function () {
+                if (!$(this).hasClass('active')) {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    $('#wubaDaojiaList').css('left') == '0px' ? $('#wubaDaojiaList').css('left', '-310px') : $('#wubaDaojiaList').css('left', 0)
+                }
+            })
+            let dot = $('.swipeDot li');
+            let wuba = $('#wubaDaojiaList');
+            let left_toggle = $('.left-toggle');
+            let right_toggle = $('.right-toggle');
+
+            $('.left-toggle').click(function () {
+                if (wuba.css('left') == '-310px') {
+                    wuba.css('left', '0px');
+                    $(dot[0]).addClass('active');
+                    $(dot[1]).removeClass('active');
+                };
+            });
+            right_toggle.click(function () {
+                if (wuba.css('left') == '0px') {
+                    wuba.css('left', '-310px');
+                    $(dot[1]).addClass('active');
+                    $(dot[0]).removeClass('active');
+                };
+            })
+        })
+    </script>
+</body>
+</html>
