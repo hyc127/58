@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./58/JQuerry.js"></script>
+    <style>
+        .navbar {
+            border: 1px solid #eeeeee;
+            margin: 0 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .weather {
+            display: inline-block;
+            height: 75px;
+            margin-right: auto;
+        }
+
+        nav {
+            display: inline-block;
+            font-size: 12px;
+        }
+
+        .navbar-nav {
+            list-style: none;
+        }
+
+        .navbar-nav li {
+            display: inline-block;
+            margin-left: 2em;
+            border: 1px solid white;
+        }
+
+        .nav-link {
+            text-decoration: none;
+        }
+
+        .arrow {
+            background: url(http://img.58cdn.com.cn/ui6/topbar/topbar_icons@2x.png) no-repeat -10px -470px;
+            background-size: 18px;
+            background-position: -6px -235px;
+            width: 7px;
+            height: 4px;
+            display: inline-block;
+            margin-left: 2px;
+            vertical-align: 2px;
+        }
+
+        .single {
+            position: absolute;
+            border: 1px solid #eeee;
+            border-top: none;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            width: 57px;
+            margin-left: -1px;
+            display: none;
+        }
+
+        .single a {
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 1em;
+            text-align: center;
+        }
+
+        .navbar-nav li:hover {
+            border: 1px solid #eee;
+        }
+
+        .navbar-nav li:hover .single {
+            display: block;
+        }
+
+        .nav-link:hover {
+            color: red;
+        }
+
+        #navigation {
+            display: flex;
+            flex-direction: row;
+            font-size: 12px;
+            margin-left: 1.5em;
+            margin-top: 1em;
+            position: absolute;
+            opacity: 0;
+        }
+        .house {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 3em;
+            border-right: 1px solid #eeeeee;
+            margin-right: 2em;
+            flex: 1;
+        }
+
+        #navigation a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 0 1em;
+            margin-bottom: 1em;
+            color: black;
+        }
+
+        .seperator {
+            width: 1px;
+            height: 1em;
+            background: black;
+            display: inline-block;
+            vertical-align: -2px;
+        }
+
+        .title {
+            color: red;
+            margin-bottom: 0;
+            margin-top: 5px;
+        }
+
+        .sub-title {
+            color: gray;
+            margin-bottom: .5em;
+            font-weight: 200;
+            line-height: 17px;
+        }
+
+        .item {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <iframe scrolling="no" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=36&icon=5&num=5"
+            class="weather"></iframe>
+        <nav>
+            <ul class="navbar-nav">
+                <li>
+                    <a href="#" class="nav-link">登录</a>
+                    <span style="font-style: italic">|</span>
+                    <a href="#" class="nav-link">注册</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">个人中心
+                        <span class="arrow"></span>
+                        <div class="single">
+                            <a href="#">我的发布</a>
+                            <a href="#">账号设置</a>
+                            <a href="#">我的求职</a>
+                            <a href="#">客户服务</a>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">商家中心
+                        <span class="arrow"></span>
+                    </a>
+                    <div class="single">
+                        <a href="#">信息管理</a>
+                        <a href="#">账户资料</a>
+                        <a href="#">我的资金</a>
+                        <a href="#">成为会员</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">联系客服
+                        <span class="arrow"></span>
+                    </a>
+                    <div class="single">
+                        <a href="#">自助服务</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">最近浏览
+                        <span class="arrow"></span>
+                    </a>
+                    <div class="single">
+                        <a href="#">暂无浏览记录</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="nav-link toggle">网站导航
+                        <span class="arrow"></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div id="navigation">
+        <div class="house">
+            <h5 class="title" style="margin-top: 0">房产</h5>
+            <div class="item">
+                <h5 class="sub-title">房屋出租</h5>
+                <a href="#">整租</a>
+                <span class="seperator"></span>
+                <a href="#">合租</a>
+                <span class="seperator"></span>
+                <a href="#">公寓</a>
+            </div>
+            <div class="item">
+                <h5 class="sub-title">房屋买卖</h5>
+                <a href="#">二手房</a>
+                <span class="seperator"></span>
+                <a href="#">新房</a>
+                <span class="seperator"></span>
+                <a href="#">卖房</a>
+            </div>
+            <div class="item">
+                <h5 class="sub-title">商业地产</h5>
+                <div>
+                    <a href="#">商铺出租</a>
+                    <span class="seperator"></span>
+                    <a href="#">商铺出售</a>
+                </div>
+                <div>
+                    <a href="#">写字楼出租</a>
+                    <span class="seperator"></span>
+                    <a href="#">生意转让</a>
+                </div>
+                <div>
+                    <a href="#">厂房</a>
+                    <span class="seperator"></span>
+                    <a href="#">仓库</a>
+                    <span class="seperator"></span>
+                    <a href="#">土地</a>
+                </div>
+            </div>
+        </div>
+        <div class="house">
+            <h5 class="title" style="margin-top: 0">汽车</h5>
+            <div class="item">
+                <h5 class="sub-title">车辆买卖</h5>
+                <a href="#">二手车</a>
+                <span class="seperator"></span>
+                <a href="#">新车</a>
+                <span class="seperator"></span>
+                <a href="#">卖车</a>
+                <span class="seperator"></span>
+                <a href="#">车价评估</a>
+            </div>
+            <div class="item">
+                <h5 class="sub-title">车辆服务</h5>
+                <a href="#">评车</a>
+                <span class="seperator"></span>
+                <a href="#">驾校教练</a>
+                <span class="seperator"></span>
+                <a href="#">租车</a>
+            </div>
+            <div class="item">
+                <h5 class="sub-title">维修保养</h5>
+                <div>
+                    <a href="#">4s店</a>
+                    <span class="seperator"></span>
+                    <a href="#">保险</a>
+                    <span class="seperator"></span>
+                    <a href="#">过户/验车</a>
+                    <span class="seperator"></span>
+                    <a href="#">汽配</a>
+                    <span class="seperator"></span>
+                    <a href="#">保养</a>
+                    <span class="seperator"></span>
+                    <a href="#">美容</a>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="house">
+                <h5 class="title" style="margin-top: 0">二手</h5>
+                <div class="item">
+                    <h5 class="sub-title">电子/机械</h5>
+                    <a href="#">手机</a>
+                    <span class="seperator"></span>
+                    <a href="#">电脑</a>
+                    <span class="seperator"></span>
+                    <a href="#">数码</a>
+                    <span class="seperator"></span>
+                    <a href="#">设备</a>
+                </div>
+                <div class="item">
+                    <h5 class="sub-title">家电/家具</h5>
+                    <a href="#">家电</a>
+                    <span class="seperator"></span>
+                    <a href="#">家具</a>
+                    <span class="seperator"></span>
+                    <a href="#">母婴</a>
+                </div>
+                <div class="item">
+                    <h5 class="sub-title">票务转让</h5>
+                    <div>
+                        <a href="#">演出票</a>
+                        <span class="seperator"></span>
+                        <a href="#">电影票</a>
+                    </div>
+                </div>
+            </div>
+            <div class="house">
+                    <h5 class="title" style="margin-top: 0">招聘</h5>
+                    <div class="item">
+                        <h5 class="sub-title">求职找工作</h5>
+                        <a href="#">全职</a>
+                        <span class="seperator"></span>
+                        <a href="#">兼职</a>
+                        <span class="seperator"></span>
+                        <a href="#">创建简历</a>
+                        <span class="seperator"></span>
+                        <a href="#">热招职位</a>
+                        <span class="seperator"></span>
+                        <a href="#">同城速聘</a>
+                        <span class="seperator"></span>
+                        <a href="#">北京招聘会</a>
+                    </div>
+                    <div class="item">
+                        <h5 class="sub-title">企业找人才</h5>
+                        <a href="#">简历搜索</a>
+                        <span class="seperator"></span>
+                        <a href="#">发布职位</a>
+                        <span class="seperator"></span>
+                        <a href="#">极速招聘</a>
+                    </div>
+                </div>
+
+                <div class="house">
+                        <h5 class="title" style="margin-top: 0">同城服务</h5>
+                        <div class="item">
+                            <h5 class="sub-title">家政服务</h5>
+                            <a href="#">婚庆摄影</a>
+                            <span class="seperator"></span>
+                            <a href="#">装修建材</a>
+                            <span class="seperator"></span>
+                            <a href="#">上午服务</a>
+                            <span class="seperator"></span>
+                            <a href="#">教育培训</a>
+                            <span class="seperator"></span>
+                            <a href="#">创业加盟</a>
+                            <span class="seperator"></span>
+                            <a href="#">旅游酒店</a>
+                            <span class="seperator"></span>
+                            <a href="#">休闲娱乐</a>
+                            <span class="seperator"></span>
+                            <a href="#">餐饮美食</a>
+                            <span class="seperator"></span>
+                            <a href="#">批发采购</a>
+                            <span class="seperator"></span>
+                            <a href="#">农林牧副</a>
+                            <span class="seperator"></span>
+                            <a href="#">二手回收</a>
+                            <span class="seperator"></span>
+                            <a href="#">丽人</a>
+                        </div>
+                    </div>
+    </div>
+    <script>
+    $(function(){
+        $('.toggle').mouseover(function(){
+            $('#navigation').css('opacity','1');
+        }).mouseleave(function(){
+            $('#navigation').css('opacity','0');
+        })
+    })
+    </script>
+</body>
+
+</html>
