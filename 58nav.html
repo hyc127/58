@@ -4,24 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <script src="./58/JQuerry.js"></script>
+    <script src="JQuerry.js"></script>
     <style>
+        body{
+            height: 1200px;
+            margin: 0;
+        }
         .navbar {
             border: 1px solid #eeeeee;
-            margin: 0 20px;
+            margin: 1em 20px;
             display: flex;
             flex-direction: row;
             align-items: center;
+            height: 30px;
         }
-
         .weather {
-            display: inline-block;
             height: 75px;
             margin-right: auto;
+            margin-top: 3em;
         }
-
         nav {
-            display: inline-block;
             font-size: 12px;
         }
 
@@ -131,13 +133,68 @@
         .item {
             margin-bottom: 0;
         }
+        .log{
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            background: #ff552e;
+            top: -1000px;
+            opacity: 0.8;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .log-icon{
+            width: 80px;
+            height: 30px;
+            background: url(logo.png) left top no-repeat;
+            background-size: 80px;
+            margin-left: 2em;
+            margin-right: auto;
+        }
+        .log-serch{
+            margin-right: 5em;
+            width: 40%;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        .log-serch input{
+            width: 80%;
+            border: 0;
+            line-height: 30px;
+        }
+        .log-serch button{
+            font-size: 14px;
+            padding: 4px 25px 6px 25px;
+            color: white;
+            background: #ff552e;
+            border: 1px solid white;
+            cursor: pointer;
+            margin-bottom: -2px;
+        }
+        .free-add{
+            width: 150px;
+            height: 30px;
+            background: white;
+            color: #ff552e;
+            font-size: 14px;
+            text-align: center;
+            line-height: 30px;
+            text-decoration: none;
+            margin-right: 3em;
+        }
     </style>
 </head>
 
 <body>
+    <div class="log">
+        <a href="#" class="log-icon"></a>
+        <a href="#" class="log-serch"><input type="text" placeholder="招聘季月薪1000+"><button>搜索</button></a>
+        <a href="#" class="free-add">免费发布信息</a>
+    </div>
     <div class="navbar">
-        <iframe scrolling="no" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=36&icon=5&num=5"
-            class="weather"></iframe>
+            <iframe width="280" scrolling="no" height="25" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3" class="weather"></iframe>
         <nav>
             <ul class="navbar-nav">
                 <li>
@@ -356,6 +413,15 @@
     </div>
     <script>
     $(function(){
+        $(window).bind('scroll',function(){
+            let high = $(window).scrollTop();
+                high = parseInt(high);
+                if(high>=100){
+                    $('.log').css('top',0);
+                }else{
+                    $('.log').css('top','-1000px');
+                }
+        })
         $('.toggle').mouseover(function(){
             $('#navigation').css('opacity','1');
         }).mouseleave(function(){
